@@ -6,12 +6,13 @@ Python Runner is an HTML-based widget designed to run as an iframe widget.
 
 This repository already contains a ready-to-use widget:
 
+```text
 python-runner.wdgt/
 ├── index.html # Widget UI
 ├── info.plist # Widget manifest
 ├── css/ # Styles
 └── js/ # Widget logic
-
+```
 ---
 
 ## 🧩 How to Use:
