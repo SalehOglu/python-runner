@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Data Science Widget</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Load Pyodide from CDN -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel left-panel">
+            <div class="header">
+                <span>main.py</span>
+                <div class="controls">
+                    <span id="status" class="status-badge">Initializing...</span>
+                    <!-- Status message -->
+                    <button id="runBtn" class="run-btn" disabled>
+                        <span class="play-icon"></span>
+                        <span class="btn-text">Run</span>
+                        <span class="spinner"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="editor-container">
+                <textarea id="code" spellcheck="false" placeholder="Write your Python code here...">import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+initial_velocity = 0
+acceleration = 1.0
+time_end = 10
+num_points = 1000
+
+# Time array
+time = np.linspace(0, time_end, num_points)
+
+# Kinematic equations
+distance = initial_velocity * time + 0.5 * acceleration * time**2
+speed = initial_velocity + acceleration * time
+
+# Plotting
+plt.figure(figsize=(10, 5))
+
+# Plot for distance vs time
+plt.subplot(1, 2, 1)
+plt.plot(time, distance, label='Distance (m)', color='blue')
+plt.xlabel('Time (s)')
+plt.ylabel('Distance (m)')
+plt.title('Distance vs Time')
+plt.grid(True)
+plt.legend()
+
+# Plot for speed vs time
+plt.subplot(1, 2, 2)
+plt.plot(time, speed, label='Speed (m/s)', color='red')
+plt.xlabel('Time (s)')
+plt.ylabel('Speed (m/s)')
+plt.title('Speed vs Time')
+plt.grid(True)
+plt.legend()
+
+plt.tight_layout()
+plt.show()
+</textarea>
+            </div>
+        </div>
+        <div class="panel right-panel">
+            <div class="header">
+                <span>Output</span>
+                <button id="clearBtn" class="clear-btn">Clear</button>
+            </div>
+            <div class="output-container">
+                <pre id="output"></pre>
+                <div id="canvas-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
